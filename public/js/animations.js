@@ -29,6 +29,7 @@ function initPageCurtain() {
    2. HERO ANIMATIONS
    ============================================ */
 function initHeroAnimation() {
+  gsap.set('.stat-card', { opacity: 1 });
   const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
   // Eyebrow
