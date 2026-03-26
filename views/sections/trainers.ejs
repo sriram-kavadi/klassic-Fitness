@@ -1,0 +1,79 @@
+<section id="trainers" class="py-24 px-6 md:px-12 bg-gradient-to-b from-dark to-[#0f0f0f]">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16 reveal-section">
+      <div class="inline-flex items-center gap-3 mb-4">
+        <div class="w-8 h-[2px] bg-brand"></div>
+        <span class="text-brand text-xs font-semibold tracking-[0.3em] uppercase">World-Class Coaches</span>
+        <div class="w-8 h-[2px] bg-brand"></div>
+      </div>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white uppercase tracking-wide">Meet Your <span class="text-brand">Trainers</span></h2>
+      <p class="text-gray-400 mt-4 text-lg max-w-xl mx-auto">Certified experts who've transformed 500+ bodies. Your success is their obsession.</p>
+    </div>
+
+    <%
+    const trainers = [
+      { name: 'Arjun Reddy', title: 'Head Trainer & Founder', exp: '12 years', spec: 'Body Transformation, Strength & Conditioning', certs: 'NASM CPT, CSCS', emoji: '🏆', tag: 'Founder' },
+      { name: 'Priya Sharma', title: 'Fat Loss Specialist', exp: '8 years', spec: 'HIIT, Functional Training, Women\'s Fitness', certs: 'ACE CPT, Nutritionist', emoji: '⚡', tag: 'Fat Loss' },
+      { name: 'Rohan Gupta', title: 'Muscle Building Coach', exp: '10 years', spec: 'Powerlifting, Hypertrophy, Sports Nutrition', certs: 'ISSA CPT, PL Coach', emoji: '💪', tag: 'Strength' },
+      { name: 'Meera Pillai', title: 'Yoga & Zumba Expert', exp: '7 years', spec: 'Flexibility, Zumba, Mindful Fitness', certs: 'RYT 500, Zumba Licensed', emoji: '🧘', tag: 'Wellness' },
+    ];
+    %>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <% trainers.forEach((t, i) => { %>
+      <div class="trainer-card group relative bg-darkCard border border-darkBorder rounded-2xl overflow-hidden hover:border-brand/50 transition-all duration-500 hover:translate-y-[-6px] hover:shadow-[0_24px_48px_rgba(255,46,46,0.15)]" data-index="<%= i %>">
+        <!-- Trainer image area -->
+        <div class="relative overflow-hidden" style="padding-top: 120%">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex flex-col items-center justify-center">
+            <!-- Emoji avatar with ring -->
+            <div class="w-28 h-28 rounded-full bg-brand/10 border-2 border-brand/30 group-hover:border-brand transition-colors duration-500 flex items-center justify-center text-6xl mb-4">
+              <%= t.emoji %>
+            </div>
+            <!-- Tag -->
+            <span class="bg-brand text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"><%= t.tag %></span>
+          </div>
+          <!-- Hover reveal -->
+          <div class="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/70 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400 flex flex-col justify-end p-5">
+            <h3 class="font-display text-xl text-white uppercase"><%= t.name %></h3>
+            <p class="text-white/90 text-sm mb-3"><%= t.spec %></p>
+            <div class="text-xs text-white/80 bg-white/20 rounded-lg px-3 py-2"><%= t.certs %></div>
+          </div>
+        </div>
+        <!-- Card body -->
+        <div class="p-5">
+          <h3 class="font-display text-xl text-white uppercase tracking-wide mb-1"><%= t.name %></h3>
+          <p class="text-brand text-xs font-semibold uppercase tracking-wider mb-3"><%= t.title %></p>
+          <div class="flex items-center gap-4 text-xs text-gray-400 mb-4">
+            <span class="flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <%= t.exp %> exp.
+            </span>
+          </div>
+          <a href="#lead-form" class="block w-full text-center bg-darkBorder hover:bg-brand text-gray-300 hover:text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider transition-all duration-300">
+            Train with Me →
+          </a>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+
+    <!-- Authority bar -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 reveal-section">
+      <%
+      const stats = [
+        { num: '500+', label: 'Clients Transformed' },
+        { num: '10+', label: 'Years Combined Experience' },
+        { num: '15+', label: 'Certifications' },
+        { num: '98%', label: 'Client Satisfaction' },
+      ];
+      %>
+      <% stats.forEach(s => { %>
+      <div class="text-center p-5 bg-darkCard border border-darkBorder rounded-xl">
+        <div class="font-display text-3xl text-brand mb-1"><%= s.num %></div>
+        <div class="text-gray-400 text-xs uppercase tracking-wider"><%= s.label %></div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>

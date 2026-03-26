@@ -1,0 +1,254 @@
+/* ===========================
+   KLASSIC FITNESS — style.css
+   =========================== */
+
+/* ---- Variables ---- */
+:root {
+  --brand: #FF2E2E;
+  --brand-dark: #CC0000;
+  --dark: #0B0B0B;
+  --dark-card: #111111;
+  --dark-border: #1E1E1E;
+  --text-muted: #6B7280;
+  --transition-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--dark); color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+/* ---- Custom Scrollbar ---- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 2px; }
+
+/* ---- Page curtain (entry animation) ---- */
+#page-curtain {
+  position: fixed; inset: 0; background: var(--dark); z-index: 9999;
+  transform-origin: top;
+  pointer-events: none;
+}
+
+/* ---- Noise Overlay ---- */
+.noise-overlay {
+  position: fixed; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; opacity: 0.3;
+}
+
+/* ---- Navbar ---- */
+#navbar { background: transparent; }
+#navbar.scrolled {
+  background: rgba(11,11,11,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--dark-border);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+}
+.navbar-inner { transition: padding 0.4s var(--transition-smooth); }
+#navbar.scrolled .navbar-inner { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ''; position: absolute; left: 0; bottom: -3px;
+  width: 0; height: 2px; background: var(--brand);
+  transition: width 0.3s var(--transition-smooth);
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Mobile menu */
+.mobile-menu { animation: slideDown 0.3s var(--transition-smooth); }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ---- Hero Section ---- */
+.hero-grid {
+  background-image: 
+    linear-gradient(rgba(255,46,46,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,46,46,0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-glow { animation: glowPulse 4s ease-in-out infinite; }
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.1); }
+}
+
+.offer-box { position: relative; }
+.offer-shimmer {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,46,46,0.08) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+.progress-fill { transition: width 1.5s var(--transition-smooth); }
+.stat-card { backdrop-filter: blur(10px); }
+
+/* ---- Hero text split animation (GSAP) ---- */
+.hero-line-1, .hero-line-2, .hero-line-3 { overflow: hidden; }
+
+/* ---- Scroll Indicator ---- */
+.scroll-indicator { animation: fadeInUp 1s 2s both; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
+/* ---- Reveal sections ---- */
+.reveal-section { opacity: 0; transform: translateY(40px); }
+.reveal-section.revealed { opacity: 1; transform: translateY(0); transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth); }
+
+/* ---- Social Proof ---- */
+.transform-card { transition: transform 0.4s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth), border-color 0.4s var(--transition-smooth); }
+.transform-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(255,46,46,0.2); }
+
+/* Testimonials auto-scroll */
+.testimonials-track { will-change: transform; }
+
+/* ---- Programs ---- */
+.program-card { transition: transform 0.5s var(--transition-smooth), box-shadow 0.5s var(--transition-smooth), border-color 0.4s; }
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-x { animation: gradient-x 3s ease infinite; background-size: 200% auto; }
+
+/* ---- Countdown ---- */
+.countdown-digit {
+  font-variant-numeric: tabular-nums;
+  position: relative;
+  overflow: hidden;
+}
+.countdown-digit.flip {
+  animation: flip 0.4s var(--transition-smooth);
+}
+@keyframes flip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-90deg); opacity: 0.5; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+/* ---- Trainers ---- */
+.trainer-card { transition: transform 0.5s var(--transition-smooth), box-shadow 0.5s var(--transition-smooth), border-color 0.4s; }
+
+/* ---- Gallery ---- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 1rem;
+}
+.gallery-tall { grid-row: span 2; }
+.gallery-wide { grid-column: span 2; }
+
+@media (max-width: 1024px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-tall { grid-row: span 1; }
+  .gallery-wide { grid-column: span 1; }
+}
+@media (max-width: 640px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; }
+}
+
+.gallery-item { transition: transform 0.4s var(--transition-smooth), box-shadow 0.4s; }
+.gallery-item:hover { transform: scale(1.02); box-shadow: 0 16px 32px rgba(0,0,0,0.6); }
+
+/* ---- Form ---- */
+input, select, textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input::placeholder, select::placeholder { color: #4B5563; }
+select option { background: #111; color: #fff; }
+
+.form-group { position: relative; }
+
+/* ---- CTA Buttons ---- */
+.cta-primary {
+  position: relative;
+  overflow: hidden;
+}
+.cta-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+.cta-primary:active::before { width: 300px; height: 300px; }
+
+/* ---- WhatsApp Float ---- */
+.whatsapp-float-btn { box-shadow: 0 8px 32px rgba(37,211,102,0.4); }
+.whatsapp-float-btn:hover { box-shadow: 0 12px 40px rgba(37,211,102,0.6); }
+
+/* ---- Sticky CTA ---- */
+.sticky-cta-bar {
+  transform: translateY(100%);
+  transition: transform 0.4s var(--transition-smooth);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
+}
+.sticky-cta-bar.visible { transform: translateY(0); }
+
+/* ---- Cursor glow effect ---- */
+.cursor-glow {
+  position: fixed; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,46,46,0.06) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: left 0.15s, top 0.15s;
+}
+
+/* ---- Magnetic button effect (JS-driven) ---- */
+.magnetic { transition: transform 0.3s var(--transition-smooth); }
+
+/* ---- Loading spinner ---- */
+.spinner {
+  width: 20px; height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---- Utility animations ---- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+/* ---- Section dividers ---- */
+section { position: relative; }
+
+/* ---- Mobile optimizations ---- */
+@media (max-width: 768px) {
+  .hero-trust { gap: 1rem; }
+  .stat-card {
+    width: 100%;
+  }
+  body { padding-bottom: 80px; }
+}
+
+/* ---- Parallax image (CSS) ---- */
+.parallax-img {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ---- High-DPI / Retina ---- */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .noise-overlay { opacity: 0.15; }
+}
+
+/* ---- Focus states (accessibility) ---- */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}

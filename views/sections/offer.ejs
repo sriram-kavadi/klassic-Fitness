@@ -1,0 +1,73 @@
+<section id="offer" class="py-24 px-6 md:px-12 relative overflow-hidden">
+  <!-- Red glow background -->
+  <div class="absolute inset-0 bg-gradient-to-r from-dark via-[#1a0505] to-dark z-0"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-brand rounded-full blur-[180px] opacity-10 z-0"></div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <!-- Urgency label -->
+    <div class="inline-flex items-center gap-2 bg-brand/20 border border-brand/40 rounded-full px-5 py-2 mb-8 reveal-section">
+      <span class="animate-pulse w-2 h-2 rounded-full bg-brand inline-block"></span>
+      <span class="text-brand text-sm font-bold uppercase tracking-wider">⚠ Offer Expires Tonight at Midnight</span>
+    </div>
+
+    <h2 class="font-display text-[clamp(3rem,8vw,6rem)] text-white uppercase tracking-wide leading-tight mb-4 reveal-section">
+      3 Days <span class="text-brand">FREE Trial</span>
+    </h2>
+
+    <p class="text-gray-300 text-xl mb-4 reveal-section">
+      + <strong class="text-white">70% OFF</strong> Joining Fee · Only <strong class="text-brand" id="offer-spots">20 spots</strong> available
+    </p>
+
+    <!-- What you get -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 reveal-section">
+      <div class="offer-perk bg-darkCard border border-darkBorder rounded-xl p-5 hover:border-brand/40 transition-all duration-300 hover:translate-y-[-3px]">
+        <div class="text-3xl mb-3">🏋️</div>
+        <div class="text-white font-semibold">Full Gym Access</div>
+        <div class="text-gray-400 text-sm mt-1">All equipment, all classes</div>
+      </div>
+      <div class="offer-perk bg-darkCard border border-darkBorder rounded-xl p-5 hover:border-brand/40 transition-all duration-300 hover:translate-y-[-3px]">
+        <div class="text-3xl mb-3">👨‍💼</div>
+        <div class="text-white font-semibold">Personal Trainer Session</div>
+        <div class="text-gray-400 text-sm mt-1">Included for free</div>
+      </div>
+      <div class="offer-perk bg-darkCard border border-darkBorder rounded-xl p-5 hover:border-brand/40 transition-all duration-300 hover:translate-y-[-3px]">
+        <div class="text-3xl mb-3">📋</div>
+        <div class="text-white font-semibold">Custom Workout Plan</div>
+        <div class="text-gray-400 text-sm mt-1">Tailored to your goals</div>
+      </div>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-wrap bg-darkCard border border-brand/30 rounded-2xl p-8 mb-10 reveal-section">
+      <p class="text-gray-400 text-sm uppercase tracking-widest mb-6">⏰ Offer expires in:</p>
+      <div class="flex items-center justify-center gap-4 md:gap-8">
+        <% const units = ['Hours', 'Minutes', 'Seconds']; %>
+        <% units.forEach((u, i) => { %>
+        <div class="text-center">
+          <div class="countdown-digit w-20 md:w-28 h-20 md:h-28 bg-dark border border-brand/40 rounded-xl flex items-center justify-center font-display text-4xl md:text-6xl text-white relative overflow-hidden" id="cd-<%= u.toLowerCase() %>">
+            <span class="relative z-10"><%= i === 0 ? '08' : i === 1 ? '15' : '30' %></span>
+            <div class="absolute inset-0 bg-brand/5"></div>
+          </div>
+          <div class="text-gray-500 text-xs uppercase tracking-widest mt-2"><%= u %></div>
+        </div>
+        <% if(i < units.length - 1) { %>
+        <div class="font-display text-4xl text-brand mb-4 animate-pulse">:</div>
+        <% } %>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal-section">
+      <a href="#lead-form" class="group relative overflow-hidden inline-flex items-center justify-center gap-3 bg-brand text-white font-bold text-xl px-10 py-5 rounded-xl hover:bg-brandDark transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(255,46,46,0.5)] uppercase tracking-wider">
+        <span class="relative z-10">Claim Free Trial Now</span>
+        <svg class="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+
+    <!-- Risk reversal -->
+    <p class="text-gray-500 text-sm mt-6 reveal-section">
+      🛡️ No credit card required · No commitment · Cancel anytime · <span class="text-white">Get started in under 2 minutes</span>
+    </p>
+  </div>
+</section>

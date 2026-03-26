@@ -1,0 +1,13 @@
+packages:
+  "framer-motion": "For premium scroll reveal animations and micro-interactions"
+  "react-hook-form": "For robust lead form state management"
+  "@hookform/resolvers": "For Zod validation integration with the lead form"
+
+images:
+  - path: "artifacts/klassic-fitness/public/images/logo.png"
+    description: "Minimalist, aggressive geometric logo mark for a premium fitness gym, featuring a stylized K in deep red and white, on a transparent background"
+    aspect_ratio: "1:1"
+
+notes:
+  - "The frontend relies on the @workspace/api-client-react package for API hooks."
+  - "The design is forced into a dark theme to match the aggressive, premium fitness aesthetic."

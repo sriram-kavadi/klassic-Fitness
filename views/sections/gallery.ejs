@@ -1,0 +1,57 @@
+<section id="gallery" class="py-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16 reveal-section">
+      <div class="inline-flex items-center gap-3 mb-4">
+        <div class="w-8 h-[2px] bg-brand"></div>
+        <span class="text-brand text-xs font-semibold tracking-[0.3em] uppercase">The Klassic Experience</span>
+        <div class="w-8 h-[2px] bg-brand"></div>
+      </div>
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] text-white uppercase tracking-wide">Inside <span class="text-brand">Klassic Fitness</span></h2>
+      <p class="text-gray-400 mt-4 text-lg max-w-xl mx-auto">Experience the environment, energy, and community that's transforming Hyderabad's bodies.</p>
+    </div>
+
+    <!-- Masonry-style grid -->
+    <%
+    const galleryItems = [
+      { label: 'State-of-the-art Equipment', icon: '🏋️', size: 'tall', color: 'from-[#1a0a0a] to-[#0d0d0d]' },
+      { label: 'High-Energy Group Classes', icon: '⚡', size: 'normal', color: 'from-[#0a0a1a] to-[#0d0d0d]' },
+      { label: 'Premium Free Weights Zone', icon: '💪', size: 'normal', color: 'from-[#0a1a0a] to-[#0d0d0d]' },
+      { label: 'Cardio Arena', icon: '🔥', size: 'wide', color: 'from-[#1a0a0a] to-[#0d0d0d]' },
+      { label: 'Personal Training Corner', icon: '🎯', size: 'normal', color: 'from-[#1a1a0a] to-[#0d0d0d]' },
+      { label: 'Recovery & Stretching Zone', icon: '🧘', size: 'normal', color: 'from-[#0a1a1a] to-[#0d0d0d]' },
+      { label: 'Member Transformation Wall', icon: '🏆', size: 'tall', color: 'from-[#1a0a0a] to-[#0d0d0d]' },
+    ];
+    %>
+
+    <div class="gallery-grid">
+      <% galleryItems.forEach((item, i) => { %>
+      <div class="gallery-item group relative overflow-hidden rounded-2xl bg-gradient-to-br <%= item.color %> border border-darkBorder hover:border-brand/40 transition-all duration-500 cursor-pointer <%= item.size === 'tall' ? 'gallery-tall' : item.size === 'wide' ? 'gallery-wide' : '' %>" data-index="<%= i %>">
+        <!-- Content -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-6">
+          <div class="text-6xl mb-4 group-hover:scale-110 transition-transform duration-500"><%= item.icon %></div>
+          <div class="text-white text-center font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm"><%= item.label %></div>
+        </div>
+        
+        <!-- Hover overlay -->
+        <div class="absolute inset-0 bg-brand/0 group-hover:bg-brand/20 transition-all duration-500"></div>
+        
+        <!-- Bottom label always visible -->
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-dark/90 to-transparent">
+          <p class="text-gray-300 text-sm font-medium"><%= item.label %></p>
+        </div>
+
+        <!-- Zoom border effect -->
+        <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand/60 rounded-2xl transition-all duration-500 scale-95 group-hover:scale-100"></div>
+      </div>
+      <% }); %>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12 reveal-section">
+      <a href="#lead-form" class="inline-flex items-center gap-2 text-brand border border-brand/40 hover:bg-brand hover:text-white px-8 py-4 rounded-lg font-semibold uppercase tracking-wider text-sm transition-all duration-300 hover:scale-105">
+        Visit Us Today — 3 Days FREE →
+      </a>
+    </div>
+  </div>
+</section>

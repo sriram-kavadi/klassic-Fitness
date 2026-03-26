@@ -1,0 +1,143 @@
+<section id="lead-form" class="py-24 px-6 md:px-12 relative overflow-hidden bg-gradient-to-b from-[#0f0f0f] to-dark">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent"></div>
+  
+  <!-- Glow -->
+  <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-brand rounded-full blur-[200px] opacity-8 z-0"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      
+      <!-- LEFT: Copy -->
+      <div class="reveal-section">
+        <div class="inline-flex items-center gap-3 mb-6">
+          <div class="w-8 h-[2px] bg-brand"></div>
+          <span class="text-brand text-xs font-semibold tracking-[0.3em] uppercase">Get Your FREE Trial</span>
+        </div>
+        <h2 class="font-display text-[clamp(2.5rem,6vw,4.5rem)] text-white uppercase tracking-wide leading-tight mb-6">
+          Get Your <br/><span class="text-brand">Free Trial</span><br/>Pass Today
+        </h2>
+        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+          Fill out the form and we'll <span class="text-white font-semibold">WhatsApp you within 10 minutes</span> with your free trial details. No commitment, no credit card.
+        </p>
+
+        <!-- What happens next -->
+        <div class="space-y-4 mb-8">
+          <% const steps = [
+            { num: '01', title: 'Submit your details', desc: 'Takes under 2 minutes' },
+            { num: '02', title: 'We call/WhatsApp you', desc: 'Within 10 minutes, guaranteed' },
+            { num: '03', title: 'Walk in for your free trial', desc: '3 full days, no charge' },
+            { num: '04', title: 'Start your transformation', desc: 'Day 1 of your new life' },
+          ]; %>
+          <% steps.forEach(s => { %>
+          <div class="flex items-center gap-4 group">
+            <div class="w-10 h-10 rounded-full border-2 border-brand/40 group-hover:border-brand group-hover:bg-brand/10 transition-all duration-300 flex items-center justify-center font-display text-brand text-sm flex-shrink-0"><%= s.num %></div>
+            <div>
+              <div class="text-white font-semibold text-sm"><%= s.title %></div>
+              <div class="text-gray-500 text-xs"><%= s.desc %></div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="flex items-center gap-4 p-4 bg-darkCard border border-darkBorder rounded-xl">
+          <div class="text-4xl">🛡️</div>
+          <div>
+            <div class="text-white font-semibold">90-Day Money-Back Guarantee</div>
+            <div class="text-gray-400 text-sm">If you don't see results in 90 days, we refund everything. Zero risk.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="reveal-section">
+        <div class="bg-darkCard border border-darkBorder rounded-2xl p-8 relative overflow-hidden">
+          <!-- Form shimmer top -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand via-orange-400 to-brand"></div>
+          
+          <div class="mb-6">
+            <h3 class="font-display text-2xl text-white uppercase tracking-wider">Claim Free Pass</h3>
+            <p class="text-gray-400 text-sm mt-1">Only <span class="text-brand font-semibold">20 spots</span> available — act fast</p>
+          </div>
+
+          <form id="lead-capture-form" class="space-y-5" novalidate>
+            <!-- Name -->
+            <div class="form-group">
+              <label class="block text-gray-400 text-xs uppercase tracking-wider mb-2">Your Full Name *</label>
+              <input 
+                type="text" 
+                name="name" 
+                id="form-name"
+                placeholder="e.g. Rahul Sharma" 
+                class="w-full bg-dark border border-darkBorder focus:border-brand text-white placeholder-gray-600 rounded-xl px-4 py-4 text-sm transition-all duration-300 outline-none focus:shadow-[0_0_0_3px_rgba(255,46,46,0.15)] hover:border-gray-600"
+                autocomplete="name"
+              />
+              <p class="form-error text-brand text-xs mt-1 hidden"></p>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label class="block text-gray-400 text-xs uppercase tracking-wider mb-2">WhatsApp / Phone *</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm font-semibold">+91</span>
+                <input 
+                  type="tel" 
+                  name="phone" 
+                  id="form-phone"
+                  placeholder="98765 43210" 
+                  class="w-full bg-dark border border-darkBorder focus:border-brand text-white placeholder-gray-600 rounded-xl pl-14 pr-4 py-4 text-sm transition-all duration-300 outline-none focus:shadow-[0_0_0_3px_rgba(255,46,46,0.15)] hover:border-gray-600"
+                  maxlength="10"
+                  autocomplete="tel"
+                />
+              </div>
+              <p class="form-error text-brand text-xs mt-1 hidden"></p>
+            </div>
+
+            <!-- Goal -->
+            <div class="form-group">
+              <label class="block text-gray-400 text-xs uppercase tracking-wider mb-2">Your Primary Goal *</label>
+              <select 
+                name="goal" 
+                id="form-goal"
+                class="w-full bg-dark border border-darkBorder focus:border-brand text-white rounded-xl px-4 py-4 text-sm transition-all duration-300 outline-none focus:shadow-[0_0_0_3px_rgba(255,46,46,0.15)] hover:border-gray-600 appearance-none cursor-pointer"
+              >
+                <option value="" class="text-gray-600">Select your goal...</option>
+                <option value="fat-loss">🔥 Lose Fat / Lose Weight</option>
+                <option value="muscle">💪 Build Muscle / Gain Strength</option>
+                <option value="fitness">⚡ Improve Overall Fitness</option>
+                <option value="personal">🎯 Personal Training (1-on-1)</option>
+                <option value="group">🧘 Group Classes / Zumba</option>
+              </select>
+              <p class="form-error text-brand text-xs mt-1 hidden"></p>
+            </div>
+
+            <!-- Submit -->
+            <button 
+              type="submit" 
+              id="form-submit-btn"
+              class="w-full group relative overflow-hidden bg-brand text-white font-bold text-lg py-4 rounded-xl hover:bg-brandDark transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,46,46,0.4)] uppercase tracking-wider"
+            >
+              <span id="btn-text" class="relative z-10 flex items-center justify-center gap-3">
+                Get My FREE Trial Pass
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </span>
+            </button>
+
+            <!-- Success message -->
+            <div id="form-success" class="hidden bg-green-500/10 border border-green-500/40 rounded-xl p-4 text-center">
+              <div class="text-2xl mb-2">🎉</div>
+              <div class="text-green-400 font-semibold text-sm" id="success-message"></div>
+            </div>
+
+            <!-- Error message -->
+            <div id="form-error-global" class="hidden bg-brand/10 border border-brand/40 rounded-xl p-4 text-center">
+              <div class="text-brand text-sm" id="error-message"></div>
+            </div>
+          </form>
+
+          <p class="text-gray-600 text-xs text-center mt-4">🔒 Your info is 100% secure. We never spam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
